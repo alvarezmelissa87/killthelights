@@ -4,9 +4,10 @@ function Grid(){
   var grid = new Array()
   for(var i = 0; i < rows; i++) {
     grid[i] = new Array()
-    for(j = 0; j < columns; j++)
+    for(j = 0; j < columns; j++) {
       grid[i][j] = this.randomVal();
     }
+  }
 
   this.board = grid
   this.won = false
