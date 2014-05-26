@@ -43,8 +43,7 @@ Controller.prototype = {
     /// checkWin should/could be in the model
   checkWin: function() {
    var flatBoard = _.flatten(this.model.board)
-   // return _.every(flatBoard) // returns boolean
-   return true
+   return _.every(flatBoard) // returns boolean
   },
 
   delegateEvent: function(e){
