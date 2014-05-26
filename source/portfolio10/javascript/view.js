@@ -17,6 +17,8 @@ View.prototype = {
   },
 
   showWinMessage: function() {
-
+    $(".win").fadeIn();
+    $(".win h1").text("MWAH HA HA!")
+    $('#mask').show();
   },
 }

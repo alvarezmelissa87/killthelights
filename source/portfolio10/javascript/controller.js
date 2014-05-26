@@ -43,7 +43,8 @@ Controller.prototype = {
     /// checkWin should/could be in the model
   checkWin: function() {
    var flatBoard = _.flatten(this.model.board)
-   return _.every(flatBoard) // returns boolean
+   // return _.every(flatBoard) // returns boolean
+   return true
   },
 
   delegateEvent: function(e){
@@ -55,7 +56,6 @@ Controller.prototype = {
     // colNum = parseInt(e.currentTarget.parentElement.id)
     this.model.changeBoard((rowNum-1), (colNum-1)) // sending two integers
     this.renderBoard();
-    this.checkWin();
     if (this.checkWin()) {
       this.view.showWinMessage();
     }

@@ -8,6 +8,7 @@ body {
 }
 
 .container {
+  position: relative;
   margin-right: 20%;
   margin-left: 20%;
 }
@@ -19,6 +20,12 @@ footer button{
   color: yellow;
   background-color: #545454;
   border-radius: 15%;
+  position: relative;
+  z-index: 3;
+}
+
+h1 {
+  font-family: 'Shadows Into Light', cursive;
 }
 
 header h1 {
@@ -42,3 +49,27 @@ header h1 {
 .on {
   background-color: yellow;
 }
+
+.win {
+  position: absolute;
+  margin: 0 auto;
+  display: none;
+  color: red;
+  left: 25%;
+  top: 20%;
+  z-index: 999;
+}
+
+#mask {
+  height: 100%;
+  width: 100%;
+  position: fixed;
+  z-index: 2;
+  display: none;
+  background-color: black;
+  top: 0;
+  left: 0;
+  opacity: .9;
+}
+
+
