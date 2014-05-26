@@ -33,14 +33,10 @@ header h1 {
 
 .one, .two, .three, .four, .five {
   border: 2px solid orange;
+  display: inline-block;
   height: 100px;
   width: 100px;
   margin: 4px 1px;
-}
-
-.col{
-  display: inline-block;
-  float: left;
 }
 
 .on {

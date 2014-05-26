@@ -14,7 +14,7 @@ function Grid(){
 
 Grid.prototype = {
   changeBoard: function(row, col) {
-    console.log(row, col);
+    this.flip(row, col);
   },
 
   randomVal: function() {
@@ -22,7 +22,9 @@ Grid.prototype = {
     return values[ Math.floor(Math.random()*2) ];
   },
 
-  sendBoard: function() {
+  flip: function(row, col) {
+    this.board[row][col] = false;
 
+    // cell ? cell = false : cell = false;
   },
 }
