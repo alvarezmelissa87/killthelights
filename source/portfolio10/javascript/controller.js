@@ -17,7 +17,6 @@ Controller.prototype = {
 
   renderBoard: function() {
     var _this = this;
-    console.log('rendering')
     this.model.board.forEach(function(row, rowIndex) {
       row.forEach(function(cell, colIndex) {
         if (cell) {
@@ -42,6 +41,11 @@ Controller.prototype = {
     location.reload();
   },
 
+  checkWin: function() {
+   var flatBoard = _.flatten(this.model.board)
+   return _.every(flatBoard) // returns boolean
+  },
+
   delegateEvent: function(e){
     // var rowNum = e.currentTarget.className // returns a string like "one" need to convert
     var $cell = $(e.currentTarget),
@@ -50,8 +54,8 @@ Controller.prototype = {
 
     // colNum = parseInt(e.currentTarget.parentElement.id)
     this.model.changeBoard((rowNum-1), (colNum-1)) // sending two integers
-    console.log(this.model.board);
     this.renderBoard();
+    this.checkWin();
   },
 
 

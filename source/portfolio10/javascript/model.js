@@ -15,6 +15,10 @@ function Grid(){
 Grid.prototype = {
   changeBoard: function(row, col) {
     this.flip(row, col);
+    this.flip(row-1, col);
+    this.flip(row+1, col);
+    this.flip(row, col-1);
+    this.flip(row, col+1);
   },
 
   randomVal: function() {
@@ -23,8 +27,19 @@ Grid.prototype = {
   },
 
   flip: function(row, col) {
-    this.board[row][col] = false;
+    if (this.outOfBounds(row, col)) { return; }
 
-    // cell ? cell = false : cell = false;
+    if (this.board[row][col]) {
+      this.board[row][col] = false;
+    }
+    else {
+      this.board[row][col] = true;
+    }
+  },
+
+  outOfBounds: function(row, col) {
+    if (row > 4 || col > 4 || row < 0 || col < 0) {
+      return true;
+    }
   },
 }

@@ -3,13 +3,16 @@ function View(){
 
 View.prototype = {
   turnOn: function(row, col) {
-    var translator = { 1: "one", 2: "two", 3: "three", 4: "four", 5: "five" }
-    // console.log(row, col, translator[col + 1]);
-   $('#'+ (row + 1)).find("." + translator[col + 1]).addClass('on')
+      // console.log(row, col, translator[col + 1]);
+   this.getCell(row, col).addClass('on')
   },
 
   turnOff: function(row, col) {
+   this.getCell(row, col).removeClass('on')
+  },
+
+  getCell: function(row, col) {
     var translator = { 1: "one", 2: "two", 3: "three", 4: "four", 5: "five" }
-   $('#'+ (row +1)).find("." + translator[col + 1]).removeClass('on')
+    return $('#'+ (row +1)).find("." + translator[col + 1])
   },
 }
