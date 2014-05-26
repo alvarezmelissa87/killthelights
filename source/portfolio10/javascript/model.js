@@ -5,7 +5,7 @@ function Grid(){
   for(var i = 0; i < rows; i++) {
     grid[i] = new Array()
     for(j = 0; j < columns; j++)
-      grid[i][j] = null
+      grid[i][j] = this.randomVal();
     }
 
   this.board = grid
@@ -15,5 +15,14 @@ function Grid(){
 Grid.prototype = {
   changeBoard: function(row, col) {
     console.log(row, col);
-  }
+  },
+
+  randomVal: function() {
+    var values = [true, false]
+    return values[ Math.floor(Math.random()*2) ];
+  },
+
+  sendBoard: function() {
+
+  },
 }

@@ -1,19 +1,32 @@
 $(document).ready(function(){
   view = new View()
-  board = new Grid()
-  controller = new Controller(view, board)
+  model = new Grid()
+  controller = new Controller(view, model)
   // Button click listeners here
-  controller.bindListeners()
-  // Reset button listener to clear board
+  controller.boardSet();
+  controller.bindListeners();
 }); // end document ready
 
 
-function Controller(view, board){
+function Controller(view, model){
   this.view = view
-  this.board = board
+  this.model = model
 }
 
 Controller.prototype = {
+
+  boardSet: function() {
+    var _this = this;
+
+    this.model.board.forEach(function(row, rowIndex) {
+      row.forEach(function(cell, colIndex) {
+        if (cell) {
+          _this.view.turnOn(rowIndex, colIndex);
+        }
+      })
+    })
+  },
+
   bindListeners: function(){
     $('.gameboard').on("click", ".col .one", this.delegateEvent.bind(this))
     $('.gameboard').on("click", ".col .two", this.delegateEvent.bind(this))
@@ -28,7 +41,6 @@ Controller.prototype = {
   },
 
   delegateEvent: function(e){
-    debugger
     var rowNum = e.currentTarget.className // returns a string like "one" need to convert
       if (rowNum === "one"){
         rowNum = 1
@@ -43,19 +55,8 @@ Controller.prototype = {
       }
 
     colNum = parseInt(e.currentTarget.parentElement.id)
-    coord = board.changeBoard((rowNum-1), (colNum-1)) // sending two integers
+    this.model.changeBoard((rowNum-1), (colNum-1)) // sending two integers
     ///here
-    row = coord[0]+1
-    column = coord[1]+1
-    var winner=board.checkWin(board.player)
-    if (winner === true) {
-      view.displayWinner(board.player)
-    }
-    view.updateBoard(board.player, row, column)
-    // view.displayWinner(winner)
-    view.playerReset(board.player)
-    board.playerToken()
-    view.playerIdentifier(board.player)
   },
 
 

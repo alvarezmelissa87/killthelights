@@ -31,7 +31,7 @@ header h1 {
   min-width: 1024px;
 }
 
-.one, .two, .three, .four, .five{
+.one, .two, .three, .four, .five {
   border: 2px solid orange;
   height: 100px;
   width: 100px;
@@ -41,4 +41,8 @@ header h1 {
 .col{
   display: inline-block;
   float: left;
+}
+
+.on {
+  background-color: yellow;
 }
