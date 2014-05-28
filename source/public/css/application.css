@@ -39,7 +39,7 @@ header h1 {
 }
 
 .one, .two, .three, .four, .five {
-  border: 2px solid orange;
+  border: 2px solid #545454;
   display: inline-block;
   height: 100px;
   width: 100px;
@@ -47,7 +47,8 @@ header h1 {
 }
 
 .on {
-  background-color: yellow;
+ /* background-color: yellow;*/
+ background-image:url('http://i165.photobucket.com/albums/u46/Dax4u/Web%20Pix/sparkflame.gif');
 }
 
 .win {
