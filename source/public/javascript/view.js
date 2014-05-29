@@ -21,4 +21,8 @@ View.prototype = {
     $(".win h1").text("MWAH HA HA!")
     $('#mask').show();
   },
+
+  updateCount: function(count) {
+    $(".counter h3").text(count)
+  },
 }

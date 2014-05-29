@@ -13,6 +13,14 @@ body {
   margin-left: 20%;
 }
 
+p {
+  color: white;
+}
+
+h3 {
+  color:white;
+}
+
 footer button{
   margin-top: 10%;
   padding: 2%;
@@ -47,8 +55,7 @@ header h1 {
 }
 
 .on {
- /* background-color: yellow;*/
- background-image:url('http://i165.photobucket.com/albums/u46/Dax4u/Web%20Pix/sparkflame.gif');
+  background-color: yellow;
 }
 
 .win {
