@@ -10,7 +10,17 @@ body {
 .container {
   position: relative;
   margin-right: 20%;
-  margin-left: 20%;
+  margin-left: 28%;
+}
+
+p {
+  color: yellow;
+  font-family: 'Special Elite', cursive;
+}
+
+h3 {
+  color: yellow;
+  font-family: 'Special Elite', cursive;
 }
 
 footer button{
@@ -35,15 +45,16 @@ header h1 {
 }
 
 .gameboard{
-  min-width: 1024px;
+  /*min-width: 1024px;*/
+  max-width: 64em;
 }
 
 .one, .two, .three, .four, .five {
-  border: 2px solid orange;
+  border: 2px solid #545454;
   display: inline-block;
-  height: 100px;
-  width: 100px;
-  margin: 4px 1px;
+  height: 6.25em;
+  width: 6.25em;
+ /* margin: 1% 1%;*/
 }
 
 .on {

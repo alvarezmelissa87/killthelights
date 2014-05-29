@@ -5,12 +5,13 @@ $(document).ready(function(){
   // Button click listeners here
   controller.renderBoard();
   controller.bindListeners();
-}); // end document ready
+}); 
 
 
 function Controller(view, model){
   this.view = view;
   this.model = model;
+  this.count = 0;
 }
 
 Controller.prototype = {
@@ -44,10 +45,10 @@ Controller.prototype = {
   checkWin: function() {
    var flatBoard = _.flatten(this.model.board)
    return _.every(flatBoard, function(value) { return value === false }) // returns boolean
-  }, // every checks every value in array
+  }, // checks every value in array
 
   delegateEvent: function(e){
-    // var rowNum = e.currentTarget.className // returns a string like "one" need to convert
+    this.count++
     var $cell = $(e.currentTarget),
         colNum = $cell.data('index'),
         rowNum = $cell.closest('.row').attr('id');
@@ -55,6 +56,7 @@ Controller.prototype = {
     // colNum = parseInt(e.currentTarget.parentElement.id)
     this.model.changeBoard((rowNum-1), (colNum-1)) // sending two integers
     this.renderBoard();
+    this.view.updateCount(this.count) /// added this- keep count of moves player makes
 
     if (this.checkWin()) {
       this.view.showWinMessage();
