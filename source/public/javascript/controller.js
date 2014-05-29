@@ -11,14 +11,12 @@ $(document).ready(function(){
 function Controller(view, model){
   this.view = view;
   this.model = model;
-  this.count = 0
+  this.count = 0;
 }
 
 Controller.prototype = {
 
   renderBoard: function() {
-    // count = 0
-    // this.view.updateCount(count)
     var _this = this;
     this.model.board.forEach(function(row, rowIndex) {
       row.forEach(function(cell, colIndex) {
